@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpu-cores-no-max-procs
+  labels:
+    app: cpu-cores-no-max-procs
+spec:
+  selector:
+    matchLabels:
+      app: cpu-cores-no-max-procs
+  template:
+    metadata:
+      labels:
+        app: cpu-cores-no-max-procs
+    spec:
+      containers:
+      - name: cpu-cores-no-max-procs
+        image: cpu-cores-image
+        ports:
+          - name: http
+            containerPort: 8009

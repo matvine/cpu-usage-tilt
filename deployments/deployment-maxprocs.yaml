@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpu-cores-max-procs
+  labels:
+    app: cpu-cores-max-procs
+spec:
+  selector:
+    matchLabels:
+      app: cpu-cores-max-procs
+  template:
+    metadata:
+      labels:
+        app: cpu-cores-max-procs
+    spec:
+      containers:
+      - name: cpu-cores-max-procs
+        image: cpu-cores-image
+        ports:
+          - name: http
+            containerPort: 8009
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
