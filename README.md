@@ -6,10 +6,15 @@ This is a small lab for demonstrating and understanding Kubernetes CPU requests 
 ### Kubernetes
 - Make sure you have access to a Kubernetes cluster
 -- Minikube 
+-- Kind
+-- Not a Production cluster, please
 
 ### Tilt
 - This lab uses Tilt so that we can move fast!
 -- Install Tilt - https://docs.tilt.dev/install.html
+
+## Start The Lab
+Make sure you're pointing at a valid Kubernetes cluster, and run `tilt up`
 
 ## Why is this Lab needed?
 - How Kubernetes limits are implemented and enforced aren't widely understood
