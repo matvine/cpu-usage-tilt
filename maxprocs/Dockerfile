@@ -1,5 +1,5 @@
 FROM golang:1.19
-WORKDIR /app
+WORKDIR /maxprocs
 ADD . .
 RUN go install ./
-ENTRYPOINT cpu-usage-tilt
+ENTRYPOINT maxprocs

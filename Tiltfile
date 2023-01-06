@@ -1,9 +1,11 @@
 # -*- mode: Python -*-
 
-docker_build('cpu-cores-image', './app', dockerfile='deployments/Dockerfile')
+docker_build('maxprocs', './maxprocs', dockerfile='maxprocs/Dockerfile')
+docker_build('nomaxprocs', './nomaxprocs', dockerfile='nomaxprocs/Dockerfile')
+
 
 k8s_yaml(
-  ['deployments/deployment.yaml', 'deployments/deployment-maxprocs.yaml'], 
+  ['deployments/nomaxprocs.yaml', 'deployments/nomaxprocs_limit.yaml','deployments/maxprocs.yaml'], 
   allow_duplicates=True
 )
 
@@ -11,9 +13,12 @@ k8s_resource('cpu-cores-no-max-procs',
   port_forwards='8000:8009'
 )
 
+k8s_resource('cpu-cores-no-max-procs-limit',
+  port_forwards='8001:8009'
+)
 
 k8s_resource('cpu-cores-max-procs',
-  port_forwards='8001:8009'
+  port_forwards='8002:8009'
 )
 
 

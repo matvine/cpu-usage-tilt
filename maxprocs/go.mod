@@ -1,4 +1,4 @@
-module github.com/matvine/cpu-usage-tilt
+module github.com/matvine/cpu-usage-tilt/maxprocs
 
 go 1.19
 

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpu-cores-no-max-procs-limit
+  labels:
+    app: cpu-cores-no-max-procs-limit
+spec:
+  selector:
+    matchLabels:
+      app: cpu-cores-no-max-procs-limit
+  template:
+    metadata:
+      labels:
+        app: cpu-cores-no-max-procs-limit
+    spec:
+      containers:
+      - name: cpu-cores-no-max-procs-limit
+        image: nomaxprocs
+        ports:
+          - name: http
+            containerPort: 8009
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "2"
