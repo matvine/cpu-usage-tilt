@@ -19,3 +19,17 @@ spec:
         ports:
           - name: http
             containerPort: 8009
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cpu-cores-no-max-proces-svc
+  annotations:
+    prometheus.io/scrape: 'true'
+spec:
+  selector:
+    name: cpu-cores-no-max-procs
+  ports:
+    - protocol: TCP
+      port: 8082
+      targetPort: 8009
